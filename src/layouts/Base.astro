@@ -5,11 +5,11 @@ interface Props {
 }
 const {
   title = 'tomolatoon.net',
-  description = 'Web・ツール・音楽など，好きなものをつくっています。',
+  description = 'C++ とボカロが好きな一般大学生',
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="w-full h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,29 +23,24 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="w-full h-full overflow-hidden font-sans bg-page-bg">
     <slot />
   </body>
 </html>
 
 <style is:global>
   :root {
-    --cyan:       #5dd8f0;
-    --pink:       #d580f5;
-    --lav:        #8fa8f8;
-    --bg:         #f8fbff;
-    --text-dark:  #1a1a2e;
-    --text-mid:   #2a2a40;
-    --text-muted: #555570;
-    --font-sans:  'DM Sans', 'Noto Sans JP', sans-serif;
-    --font-jp:    'Noto Sans JP', sans-serif;
-  }
+    /* GeoBg の SVG 属性から参照するため CSS 変数で残す */
+    --cyan: #5dd8f0;
+    --pink: #d580f5;
+    --lav:  #8fa8f8;
 
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: var(--font-sans);
-    background: var(--bg);
+    /* color-mix() は UnoCSS が生成できないため事前定義 */
+    --cyan-a20: color-mix(in srgb, #5dd8f0 20%, transparent);
+    --cyan-a27: color-mix(in srgb, #5dd8f0 27%, transparent);
+    --cyan-a33: color-mix(in srgb, #5dd8f0 33%, transparent);
+    --cyan-a53: color-mix(in srgb, #5dd8f0 53%, transparent);
+    --lav-a20:  color-mix(in srgb, #8fa8f8 20%, transparent);
+    --lav-a27:  color-mix(in srgb, #8fa8f8 27%, transparent);
   }
 </style>

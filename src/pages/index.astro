@@ -4,41 +4,49 @@ import GeoBg from '@/components/GeoBg.astro';
 import Avatar from '@/components/Avatar.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 
-const name    = 'tomolatoon';
+const name = 'tomolatoon';
 const tagline = 'C++ とボカロが好きな一般大学生';
-const bio     = 'UEC25, VLL, MMA, 工研, まにけん, squec';
+const bio = 'UEC25, VLL, MMA, 工研, まにけん, squec';
 ---
+
 <Base>
   <main class="relative w-full h-dvh flex items-center justify-center overflow-hidden">
     <GeoBg />
 
-    <div class="relative z-2 flex flex-col items-center text-center
+    <div
+      class="relative z-2 flex flex-col items-center text-center
                 gap-[clamp(18px,4vw,32px)]
                 px-[clamp(24px,8vw,64px)] py-[clamp(28px,6vw,48px)]
-                max-w-[480px] w-[90%]">
-
+                max-w-[480px] w-[90%]"
+    >
       <Avatar />
 
       <div class="flex flex-col items-center gap-1">
-        <h1 class="font-sans font-semibold tracking-[-0.02em] leading-[1.1] text-dark
-                   text-[clamp(28px,7vw,44px)]">
+        <h1
+          class="font-sans font-semibold tracking-[-0.02em] leading-[1.1] text-dark
+                   text-[clamp(28px,7vw,44px)]"
+        >
           {name}
         </h1>
       </div>
 
       <div class="flex flex-col items-center gap-1.5">
-        <p class="font-jp font-medium tracking-[0.02em] text-mid
-                  text-[clamp(13px,3.2vw,16px)]">
+        <p
+          class="font-jp font-medium tracking-[0.02em] text-mid
+                  text-[clamp(13px,3.2vw,16px)]"
+        >
           {tagline}
         </p>
-        <p class="font-jp font-light leading-[1.7] text-muted max-w-[340px]
-                  text-[clamp(12px,2.8vw,14px)]">
+        <p
+          class="font-jp font-light leading-[1.7] text-muted max-w-[340px]
+                  text-[clamp(12px,2.8vw,14px)]"
+        >
           {bio}
         </p>
       </div>
 
-      <div class="w-12 h-[2px] rounded-sm bg-gradient-to-r from-cyan to-lav"
-           aria-hidden="true" />
+      <div class="w-12 h-[2px] rounded-sm bg-gradient-to-r from-cyan to-lav" aria-hidden="true">
+      </div>
 
       <SocialLinks />
     </div>

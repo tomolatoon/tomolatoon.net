@@ -8,17 +8,17 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      cyan:      '#5dd8f0',
-      pink:      '#d580f5',
-      lav:       '#8fa8f8',
+      cyan: '#5dd8f0',
+      pink: '#d580f5',
+      lav: '#8fa8f8',
       'page-bg': '#f8fbff',
-      dark:      '#1a1a2e',
-      mid:       '#2a2a40',
-      muted:     '#555570',
+      dark: '#1a1a2e',
+      mid: '#2a2a40',
+      muted: '#555570',
     },
     fontFamily: {
       sans: "'DM Sans', 'Noto Sans JP', sans-serif",
-      jp:   "'Noto Sans JP', sans-serif",
+      jp: "'Noto Sans JP', sans-serif",
     },
   },
 });

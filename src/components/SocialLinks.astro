@@ -1,34 +1,42 @@
 ---
 const socials = [
   {
-    label: 'GitHub',
-    href: 'https://github.com/tomolatoon',
-    icon: 'i-simple-icons-github',
+    label: "GitHub",
+    href: "https://github.com/tomolatoon",
+    icon: "i-simple-icons-github",
   },
   {
-    label: 'X / Twitter',
-    href: 'https://twitter.com/tomolatoon',
-    icon: 'i-simple-icons-x',
+    label: "Twitter1",
+    href: "https://twitter.com/tomolatoon_tw",
+    icon: "i-simple-icons-x",
   },
   {
-    label: 'Zenn',
-    href: 'https://zenn.dev/tomolatoon',
-    icon: 'i-simple-icons-zenn',
+    label: "Qiita",
+    href: "https://qiita.com/tomolatoon",
+    icon: "i-simple-icons-qiita",
+  },
+  {
+    label: "Zenn",
+    href: "https://zenn.dev/tomolatoon",
+    icon: "i-simple-icons-zenn",
   },
 ] as const;
 ---
+
 <div class="socials">
-  {socials.map((s) => (
-    <a
-      href={s.href}
-      aria-label={s.label}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="social-btn"
-    >
-      <span class={`${s.icon} social-btn__icon`} />
-    </a>
-  ))}
+  {
+    socials.map((s) => (
+      <a
+        href={s.href}
+        aria-label={s.label}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-btn"
+      >
+        <span class={`${s.icon} social-btn__icon`} />
+      </a>
+    ))
+  }
 </div>
 
 <style>
@@ -48,7 +56,10 @@ const socials = [
     border: 1.5px solid color-mix(in srgb, var(--cyan) 33%, transparent);
     color: #555;
     text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
   }
 
   .social-btn:hover {

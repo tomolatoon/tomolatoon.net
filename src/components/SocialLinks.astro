@@ -1,34 +1,24 @@
 ---
+type SocialLink = {
+  readonly label: string;
+  readonly href: `https://${string}`;
+  readonly icon: `i-${string}`;
+};
+
 const socials = [
-  {
-    label: 'GitHub',
-    href: 'https://github.com/tomolatoon',
-    icon: 'i-simple-icons-github',
-  },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/tomolatoon_tw',
-    icon: 'i-simple-icons-x',
-  },
-  {
-    label: 'Qiita',
-    href: 'https://qiita.com/tomolatoon',
-    icon: 'i-simple-icons-qiita',
-  },
-  {
-    label: 'Zenn',
-    href: 'https://zenn.dev/tomolatoon',
-    icon: 'i-simple-icons-zenn',
-  },
-] as const;
+  { label: 'GitHub', href: 'https://github.com/tomolatoon', icon: 'i-simple-icons-github' },
+  { label: 'Twitter', href: 'https://twitter.com/tomolatoon_tw', icon: 'i-simple-icons-x' },
+  { label: 'Qiita', href: 'https://qiita.com/tomolatoon', icon: 'i-simple-icons-qiita' },
+  { label: 'Zenn', href: 'https://zenn.dev/tomolatoon', icon: 'i-simple-icons-zenn' },
+] as const satisfies readonly SocialLink[];
 ---
 
 <div flex gap="3" items-center>
   {
-    socials.map((s) => (
+    socials.map((social) => (
       <a
-        href={s.href}
-        aria-label={s.label}
+        href={social.href}
+        aria-label={social.label}
         target="_blank"
         rel="noopener noreferrer"
         flex
@@ -44,7 +34,7 @@ const socials = [
         duration="200"
         bg="hover:[linear-gradient(135deg,var(--cyan-a20),var(--lav-a20))]"
       >
-        <span class={`${s.icon} text-[22px]`} />
+        <span class={`${social.icon} text-[22px]`} />
       </a>
     ))
   }

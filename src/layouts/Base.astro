@@ -1,9 +1,11 @@
 ---
+import { SITE_TITLE, SITE_DESCRIPTION } from '@/constants/site';
+
 interface Props {
   title?: string;
   description?: string;
 }
-const { title = 'tomolatoon.net', description = 'C++ とボカロが好きな一般大学生' } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,7 +35,8 @@ const { title = 'tomolatoon.net', description = 'C++ とボカロが好きな一
     --pink: #d580f5;
     --lav: #8fa8f8;
 
-    /* color-mix() は UnoCSS が生成できないため事前定義 */
+    /* UnoCSS はクラス経由での値適用のみ対応。SVG 属性・style 属性でカスタムプロパティ名として
+       直参照するため、color-mix() 値も含め CSS 変数として事前定義が必要。 */
     --cyan-a20: color-mix(in srgb, #5dd8f0 20%, transparent);
     --cyan-a27: color-mix(in srgb, #5dd8f0 27%, transparent);
     --cyan-a33: color-mix(in srgb, #5dd8f0 33%, transparent);

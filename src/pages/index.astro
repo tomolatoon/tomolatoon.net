@@ -28,16 +28,14 @@ const bio = 'UEC25, VLL, MMA, 工研, まにけん, squec';
     >
       <Avatar />
 
-      <div flex flex-col items-center gap="1">
-        <h1
-          font="sans semibold"
-          tracking="[-0.02em]"
-          leading="[1.1]"
-          text="dark [clamp(28px,7vw,44px)]"
-        >
-          {name}
-        </h1>
-      </div>
+      <h1
+        font="sans semibold"
+        tracking="[-0.02em]"
+        leading="[1.1]"
+        text="dark [clamp(28px,7vw,44px)]"
+      >
+        {name}
+      </h1>
 
       <div flex flex-col items-center gap="1.5">
         <p font="jp medium" tracking="[0.02em]" text="mid [clamp(13px,3.2vw,16px)]">
@@ -48,8 +46,7 @@ const bio = 'UEC25, VLL, MMA, 工研, まにけん, squec';
         </p>
       </div>
 
-      <div w="12" h="[2px]" rounded="sm" bg="gradient-to-r" from-cyan to-lav aria-hidden="true">
-      </div>
+      <span w="12" h="[2px]" rounded="sm" bg="gradient-to-r" from-cyan to-lav aria-hidden="true" />
 
       <SocialLinks />
     </div>

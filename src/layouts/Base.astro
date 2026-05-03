@@ -1,11 +1,16 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/constants/site';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '@/constants/site';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/noto-sans-jp/300.css';
+import '@fontsource/noto-sans-jp/500.css';
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
 }
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, canonicalUrl = SITE_URL } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,14 +21,15 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="theme-color" content="#f8fbff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary" />
   </head>
-  <body w="full" h="full" overflow-hidden font-sans bg="page-bg">
+  <body w="full" h="full" font-sans bg="page-bg">
     <slot />
   </body>
 </html>

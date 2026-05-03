@@ -6,7 +6,11 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true"
-  class="absolute inset-0 w-full h-full pointer-events-none"
+  absolute
+  inset="0"
+  w="full"
+  h="full"
+  pointer-events-none
   viewBox="0 0 100 100"
   preserveAspectRatio="none"
 >
@@ -167,21 +171,29 @@
 <!-- ドットグリッド（右上）: 4 列 × 3 行 = 64×48px、CSS 固定配置 -->
 <div
   aria-hidden="true"
-  class="absolute pointer-events-none text-lav opacity-45
-         bg-[radial-gradient(circle,currentColor_2.5px,transparent_2.5px)]
-         [background-size:16px_16px]
-         top-[clamp(60px,12vh,120px)] right-[clamp(28px,5vw,64px)]
-         w-16 h-12"
+  absolute
+  pointer-events-none
+  text="lav"
+  opacity="45"
+  class="bg-[radial-gradient(circle,currentColor_2.5px,transparent_2.5px)] [background-size:16px_16px]"
+  top="[clamp(60px,12vh,120px)]"
+  right="[clamp(28px,5vw,64px)]"
+  w="16"
+  h="12"
 >
 </div>
 
 <!-- ドットグリッド（左下）: 3 列 × 3 行 = 48×48px、CSS 固定配置 -->
 <div
   aria-hidden="true"
-  class="absolute pointer-events-none text-cyan opacity-30
-         bg-[radial-gradient(circle,currentColor_2.5px,transparent_2.5px)]
-         [background-size:16px_16px]
-         bottom-[clamp(60px,12vh,120px)] left-[clamp(28px,5vw,64px)]
-         w-12 h-12"
+  absolute
+  pointer-events-none
+  text="cyan"
+  opacity="30"
+  class="bg-[radial-gradient(circle,currentColor_2.5px,transparent_2.5px)] [background-size:16px_16px]"
+  bottom="[clamp(60px,12vh,120px)]"
+  left="[clamp(28px,5vw,64px)]"
+  w="12"
+  h="12"
 >
 </div>

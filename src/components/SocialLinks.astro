@@ -23,7 +23,7 @@ const socials = [
 ] as const;
 ---
 
-<div class="flex gap-3 items-center">
+<div flex gap="3" items-center>
   {
     socials.map((s) => (
       <a
@@ -31,11 +31,18 @@ const socials = [
         aria-label={s.label}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center w-12 h-12 rounded-full no-underline
-             border-[1.5px] border-[color:var(--cyan-a33)]
-             text-[#555] transition-all duration-200
-             hover:border-cyan hover:text-cyan
-             hover:bg-[linear-gradient(135deg,var(--cyan-a20),var(--lav-a20))]"
+        flex
+        items-center
+        justify-center
+        w="12"
+        h="12"
+        rounded="full"
+        no-underline
+        border="[1.5px] [color:var(--cyan-a33)] hover:cyan"
+        text="[#555] hover:cyan"
+        transition-all
+        duration="200"
+        bg="hover:[linear-gradient(135deg,var(--cyan-a20),var(--lav-a20))]"
       >
         <span class={`${s.icon} text-[22px]`} />
       </a>

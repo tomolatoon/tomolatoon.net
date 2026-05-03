@@ -1,5 +1,7 @@
 ---
 // SVG は preserveAspectRatio="none" で全画面伸縮（三角形・ライン向き）。
+// ストローク要素に vector-effect="non-scaling-stroke" が必須:
+//   preserveAspectRatio="none" による x/y 非均等スケールでストローク幅が歪むのを防ぐ。
 // ドットグリッドは CSS 固定配置で幅変化の影響を受けない。
 ---
 
@@ -33,11 +35,9 @@
     </linearGradient>
   </defs>
 
-  <!-- コーナーグラデーション三角形 -->
   <polygon points="100,0 100,42 18,0" fill="url(#g-cyan-lav)"></polygon>
   <polygon points="0,100 0,58 82,100" fill="url(#g-pink-lav)"></polygon>
 
-  <!-- アウトライン三角形 -->
   <polygon
     points="6,28 11,16 16,28"
     fill="none"
@@ -67,7 +67,6 @@
     stroke-opacity="0.5"
     vector-effect="non-scaling-stroke"></polygon>
 
-  <!-- 対角アクセントライン（シアン） -->
   <line
     x1="-2"
     y1="46"
@@ -88,7 +87,6 @@
     stroke-linecap="round"
     vector-effect="non-scaling-stroke"></line>
 
-  <!-- 対角アクセントライン（ピンク） -->
   <line
     x1="102"
     y1="54"
@@ -109,7 +107,6 @@
     stroke-linecap="round"
     vector-effect="non-scaling-stroke"></line>
 
-  <!-- 右上クロスライン -->
   <line
     x1="68"
     y1="0"
@@ -131,7 +128,6 @@
     stroke-linecap="round"
     vector-effect="non-scaling-stroke"></line>
 
-  <!-- 左下クロスライン -->
   <line
     x1="0"
     y1="86"
@@ -143,7 +139,6 @@
     stroke-linecap="round"
     vector-effect="non-scaling-stroke"></line>
 
-  <!-- ダイヤモンド -->
   <rect
     x="47.5"
     y="5"
@@ -168,7 +163,7 @@
     vector-effect="non-scaling-stroke"></rect>
 </svg>
 
-<!-- ドットグリッド（右上）: 4 列 × 3 行 = 64×48px、CSS 固定配置 -->
+<!-- ドットグリッド（右上）: CSS 固定配置 -->
 <div
   aria-hidden="true"
   absolute
@@ -183,7 +178,7 @@
 >
 </div>
 
-<!-- ドットグリッド（左下）: 3 列 × 3 行 = 48×48px、CSS 固定配置 -->
+<!-- ドットグリッド（左下）: CSS 固定配置 -->
 <div
   aria-hidden="true"
   absolute

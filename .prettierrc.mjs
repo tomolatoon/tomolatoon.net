@@ -1,6 +1,6 @@
 /** @type {import("prettier").Config} */
 export default {
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-organize-imports'],
   overrides: [
     {
       files: '*.astro',
@@ -14,4 +14,5 @@ export default {
   tabWidth: 2,
   trailingComma: 'all',
   printWidth: 100,
+  endOfLine: 'lf',
 };

@@ -1,9 +1,9 @@
 // @ts-check
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import prettierConfig from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import pluginVue from 'eslint-plugin-vue';
-import tsParser from '@typescript-eslint/parser';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import prettierConfig from 'eslint-config-prettier';
 
 export default [
   // TypeScript files

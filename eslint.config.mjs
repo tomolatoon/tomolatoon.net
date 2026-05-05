@@ -1,9 +1,9 @@
 // @ts-check
+import prettierConfig from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import pluginVue from 'eslint-plugin-vue';
-import prettierConfig from 'eslint-config-prettier';
-import vueParser from 'vue-eslint-parser';
 import tseslint from 'typescript-eslint';
+import vueParser from 'vue-eslint-parser';
 
 export default [
   // TypeScript ファイル（.mjs は Plain JS なので除外）

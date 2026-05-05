@@ -1,36 +1,42 @@
 // @ts-check
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import prettierConfig from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import pluginVue from 'eslint-plugin-vue';
+import prettierConfig from 'eslint-config-prettier';
+import vueParser from 'vue-eslint-parser';
+import tseslint from 'typescript-eslint';
 
 export default [
-  // TypeScript files
+  // TypeScript ファイル（.mjs は Plain JS なので除外）
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
+  })),
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.mjs'],
-    languageOptions: {
-      parser: tsParser,
-    },
-    plugins: {
-      '@typescript-eslint': tsPlugin,
-    },
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
     rules: {
-      ...tsPlugin.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
 
-  // Vue SFC files (flat config variant)
+  // Vue SFC — vue-eslint-parser をルートパーサー、TypeScript パーサーを <script> 内に設定
   ...pluginVue.configs['flat/recommended'],
+  {
+    files: ['**/*.vue'],
+    languageOptions: {
+      parser: vueParser,
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+  },
 
-  // Astro files
+  // Astro ファイル
   ...eslintPluginAstro.configs.recommended,
 
-  // Disable formatting rules (handled by Prettier)
+  // フォーマット系ルールは Prettier に委ねる
   prettierConfig,
 
-  // Global ignores
+  // グローバル除外
   {
     ignores: ['dist/', '.astro/', 'node_modules/'],
   },

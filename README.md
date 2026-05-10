@@ -94,4 +94,4 @@ import { SITE_TITLE } from '@/constants/site';
 | ------------------ | ------------ |
 | ビルドコマンド     | `pnpm build` |
 | 出力ディレクトリ   | `dist`       |
-| Node.js バージョン | 18 以上      |
+| Node.js バージョン | 22 以上      |

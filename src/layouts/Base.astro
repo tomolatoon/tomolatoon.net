@@ -1,9 +1,13 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '@/constants/site';
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/600.css';
-import '@fontsource/noto-sans-jp/300.css';
-import '@fontsource/noto-sans-jp/500.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-600.css';
+import '@fontsource/noto-sans-jp/japanese-300.css';
+import '@fontsource/noto-sans-jp/latin-300.css';
+import '@fontsource/noto-sans-jp/japanese-500.css';
+import '@fontsource/noto-sans-jp/latin-500.css';
+import dmSans400Url from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2';
+import notoSansJp300Url from '@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-300-normal.woff2';
 
 interface Props {
   title?: string;
@@ -17,12 +21,34 @@ const {
   canonicalUrl = SITE_URL,
   image = `${SITE_URL}/og-image.svg`,
 } = Astro.props;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'tomolatoon',
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  sameAs: [
+    'https://github.com/tomolatoon',
+    'https://twitter.com/tomolatoon_tw',
+    'https://qiita.com/tomolatoon',
+    'https://zenn.dev/tomolatoon',
+  ],
+});
 ---
 
 <!doctype html>
 <html lang="ja" w="full" h="full">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preload" href={dmSans400Url} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      href={notoSansJp300Url}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -37,6 +63,7 @@ const {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
   </head>
   <body w="full" h="full" font-sans bg="page-bg">
     <slot />

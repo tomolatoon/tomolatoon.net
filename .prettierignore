@@ -2,3 +2,4 @@ pnpm-lock.yaml
 dist/
 .astro/
 node_modules/
+.claude/settings.local.json

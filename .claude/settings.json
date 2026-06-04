@@ -9,6 +9,18 @@
             "command": "echo '{\"decision\": \"block\", \"reason\": \"Web 検索する場合には「gemini -p \"WebSearch: <query>\"」を用いて\"}'"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && pnpm lint && pnpm format:check && pnpm astro check || { echo 'コミット前チェック失敗: lint / format:check / astro check のいずれかが失敗しました。修正してから再コミットしてください。' >&2; exit 2; }",
+            "timeout": 180,
+            "statusMessage": "コミット前 CI チェック (lint / format:check / astro check)"
+          }
+        ]
       }
     ],
     "PostToolUse": [

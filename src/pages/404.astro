@@ -1,0 +1,39 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+
+<Base title={`404 - ページが見つかりません | tomolatoon.net`}>
+  <main relative w="full" h="dvh" flex items-center justify-center>
+    <div relative z="2" flex flex-col items-center text="center" gap="[clamp(16px,3vw,24px)]">
+      <span
+        font="sans semibold"
+        tracking="[-0.02em]"
+        leading="[1.1]"
+        text="dark [clamp(80px,18vw,120px)]"
+      >
+        404
+      </span>
+
+      <p font="jp medium" tracking="[0.02em]" text="mid [clamp(14px,3.2vw,18px)]">
+        ページが見つかりませんでした
+      </p>
+
+      <span w="10" h="[2px]" rounded="sm" bg="gradient-to-r" from-cyan to-lav aria-hidden="true"
+      ></span>
+
+      <a
+        href="/"
+        font="sans"
+        text="[clamp(13px,2.5vw,15px)]"
+        text-lav
+        no-underline
+        underline-offset-4
+        hover:underline
+        transition-all
+        duration="200"
+      >
+        ← トップへ戻る
+      </a>
+    </div>
+  </main>
+</Base>

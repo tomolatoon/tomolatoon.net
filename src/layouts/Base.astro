@@ -1,0 +1,71 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '@/constants/site';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-600.css';
+import '@fontsource/noto-sans-jp/japanese-300.css';
+import '@fontsource/noto-sans-jp/latin-300.css';
+import '@fontsource/noto-sans-jp/japanese-500.css';
+import '@fontsource/noto-sans-jp/latin-500.css';
+import dmSans400Url from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2';
+import notoSansJp300Url from '@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-300-normal.woff2';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  image?: string;
+}
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  canonicalUrl = SITE_URL,
+  image = `${SITE_URL}/og-image.png`,
+} = Astro.props;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'tomolatoon',
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  sameAs: [
+    'https://github.com/tomolatoon',
+    'https://twitter.com/tomolatoon_tw',
+    'https://qiita.com/tomolatoon',
+    'https://zenn.dev/tomolatoon',
+  ],
+});
+---
+
+<!doctype html>
+<html lang="ja" w="full" h="full">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preload" href={dmSans400Url} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      href={notoSansJp300Url}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="theme-color" content="#f8fbff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body w="full" h="full" font-sans bg="page-bg">
+    <slot />
+  </body>
+</html>

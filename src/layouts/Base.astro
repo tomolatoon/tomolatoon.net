@@ -69,21 +69,3 @@ const jsonLd = JSON.stringify({
     <slot />
   </body>
 </html>
-
-<style is:global>
-  :root {
-    /* GeoBg の SVG 属性から参照するため CSS 変数で残す */
-    --cyan: #5dd8f0;
-    --pink: #d580f5;
-    --lav: #8fa8f8;
-
-    /* UnoCSS はクラス経由での値適用のみ対応。SVG 属性・style 属性でカスタムプロパティ名として
-       直参照するため、color-mix() 値も含め CSS 変数として事前定義が必要。 */
-    --cyan-a20: color-mix(in srgb, #5dd8f0 20%, transparent);
-    --cyan-a27: color-mix(in srgb, #5dd8f0 27%, transparent);
-    --cyan-a33: color-mix(in srgb, #5dd8f0 33%, transparent);
-    --cyan-a53: color-mix(in srgb, #5dd8f0 53%, transparent);
-    --lav-a20: color-mix(in srgb, #8fa8f8 20%, transparent);
-    --lav-a27: color-mix(in srgb, #8fa8f8 27%, transparent);
-  }
-</style>

@@ -5,7 +5,6 @@ export default defineConfig({
   theme: {
     colors: {
       cyan: '#5dd8f0',
-      pink: '#d580f5',
       lav: '#8fa8f8',
       'page-bg': '#f8fbff',
       dark: '#1a1a2e',

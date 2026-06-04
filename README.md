@@ -20,13 +20,11 @@
 ```
 src/
 ├── pages/
-│   └── index.astro          # トップページ
+│   ├── index.astro          # トップページ
+│   └── 404.astro            # 404 ページ
 ├── layouts/
 │   └── Base.astro           # HTML 骨格・メタタグ・フォント読み込み
-├── components/
-│   ├── GeoBg.astro          # 幾何学 SVG 背景
-│   ├── Avatar.astro         # アバター
-│   └── SocialLinks.astro   # SNS リンク一覧
+├── components/              # （未実装）
 └── constants/
     └── site.ts              # サイト名・説明・URL などの定数
 ```
@@ -69,14 +67,11 @@ UnoCSS の **Attributify モード**を採用しています。クラス属性�
 | 変数名    | 用途                           |
 | --------- | ------------------------------ |
 | `cyan`    | アクセントカラー（水色）       |
-| `pink`    | アクセントカラー（ピンク）     |
 | `lav`     | アクセントカラー（ラベンダー） |
 | `page-bg` | ページ背景色                   |
 | `dark`    | 見出しテキスト                 |
 | `mid`     | 本文テキスト                   |
 | `muted`   | 補足テキスト                   |
-
-> **注意**: `Base.astro` にも同じ値が CSS 変数（`--cyan` など）として定義されています。SVG 属性から直接参照するために必要なため、`uno.config.ts` の値と二重管理になっています。
 
 ## パスエイリアス
 

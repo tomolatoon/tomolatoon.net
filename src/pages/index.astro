@@ -1,55 +1,9 @@
 ---
 import Base from '@/layouts/Base.astro';
-import GeoBg from '@/components/GeoBg.astro';
-import Avatar from '@/components/Avatar.astro';
-import SocialLinks from '@/components/SocialLinks.astro';
-
-const name = 'tomolatoon';
-const tagline = 'C++ とボカロが好きな一般大学生';
-const bio = 'UEC25, VLL, MMA, 工研, まにけん, squec';
 ---
 
 <Base>
   <main relative w="full" h="dvh" flex items-center justify-center overflow-hidden>
-    <GeoBg />
-
-    <div
-      relative
-      z="2"
-      flex
-      flex-col
-      items-center
-      text="center"
-      gap="[clamp(18px,4vw,32px)]"
-      px="[clamp(24px,8vw,64px)]"
-      py="[clamp(28px,6vw,48px)]"
-      max-w="[480px]"
-      w="[90%]"
-    >
-      <Avatar />
-
-      <h1
-        font="sans semibold"
-        tracking="[-0.02em]"
-        leading="[1.1]"
-        text="dark [clamp(28px,7vw,44px)]"
-      >
-        {name}
-      </h1>
-
-      <div flex flex-col items-center gap="1.5">
-        <p font="jp medium" tracking="[0.02em]" text="mid [clamp(13px,3.2vw,16px)]">
-          {tagline}
-        </p>
-        <p font="jp light" leading="[1.7]" text="muted [clamp(12px,2.8vw,14px)]" max-w="[340px]">
-          {bio}
-        </p>
-      </div>
-
-      <span w="12" h="[2px]" rounded="sm" bg="gradient-to-r" from-cyan to-lav aria-hidden="true"
-      ></span>
-
-      <SocialLinks />
-    </div>
+    
   </main>
 </Base>
